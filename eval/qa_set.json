@@ -1,0 +1,146 @@
+[
+  {
+    "question": "What data classification levels does the corporate cybersecurity policy define?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "Which data classification level requires encryption at rest?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "What is the principle that access to internal networks must follow?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "What are the cryptographic requirements for system passwords?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "How often must passwords be rotated under the security policy?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "Within how many minutes must the SOC be notified of a suspected data breach?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "How long must system logs be retained in WORM storage?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "What are the five steps of the incident response workflow?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "How many consecutive failed login attempts result in an account lock?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "Does the cybersecurity policy apply to contractors?",
+    "expected_source": "cybersecurity_policy.pdf"
+  },
+  {
+    "question": "What formula is used to calculate Scaled Dot-Product Attention?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "What prevents dot products from growing too large in transformer attention?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "Why does Multi-Head Attention project Q, K, and V multiple times?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "Is BERT an encoder-only or decoder-only transformer model?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "Which transformer model uses causal masked attention for autoregressive text generation?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "What does LoRA stand for in parameter-efficient fine-tuning?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "How does LoRA factorize the weight update matrix delta-W?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "What are the pre-training tasks used to train BERT?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "What does PEFT stand for in machine learning?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "Which attention mechanism is the fundamental building block of modern transformer architectures?",
+    "expected_source": "ml_research_notes.docx"
+  },
+  {
+    "question": "Who are the participants in the Q3 product roadmap meeting?",
+    "expected_source": "meeting_transcript.txt"
+  },
+  {
+    "question": "What model did Priya recommend as the default local LLM due to memory constraints?",
+    "expected_source": "meeting_transcript.txt"
+  },
+  {
+    "question": "What context window size and parameter count does Phi-2 have?",
+    "expected_source": "meeting_transcript.txt"
+  },
+  {
+    "question": "Which embedding model did Priya suggest sticking to for the project?",
+    "expected_source": "meeting_transcript.txt"
+  },
+  {
+    "question": "What dashboard component did Nandini design to show document ingestion progress?",
+    "expected_source": "meeting_transcript.txt"
+  },
+  {
+    "question": "What similarity threshold is set in the MMR retrieval implementation?",
+    "expected_source": "meeting_transcript.txt"
+  },
+  {
+    "question": "What charting library is Nandini using to display documents by modality on the dashboard?",
+    "expected_source": "meeting_transcript.txt"
+  },
+  {
+    "question": "How fast do Phi-2 response times run on an average CPU?",
+    "expected_source": "meeting_transcript.txt"
+  },
+  {
+    "question": "What is the capital of France?",
+    "expected_source": ""
+  },
+  {
+    "question": "How do you cook a perfect chocolate soufflé?",
+    "expected_source": ""
+  },
+  {
+    "question": "Who won the FIFA World Cup in 2022?",
+    "expected_source": ""
+  },
+  {
+    "question": "What is the current stock price of Apple Inc?",
+    "expected_source": ""
+  },
+  {
+    "question": "Can you explain the basics of quantum electrodynamics?",
+    "expected_source": ""
+  },
+  {
+    "question": "What are the steps required to replace a car tire?",
+    "expected_source": ""
+  },
+  {
+    "question": "What is the recipe for making sourdough bread from scratch?",
+    "expected_source": ""
+  },
+  {
+    "question": "Who wrote the play Hamlet and in what year?",
+    "expected_source": ""
+  }
+]

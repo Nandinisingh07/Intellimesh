@@ -1,0 +1,325 @@
+lambda,threshold,question,expected_source,top_cosine_score,guard_fired,source_in_top5
+0.2,0.2,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.2,0.2,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.009,1,1
+0.2,0.2,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,0.002,1,1
+0.2,0.2,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.176,1,1
+0.2,0.2,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.2,0.2,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.2,0.2,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.2,0.2,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.04,1,1
+0.2,0.2,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.2,0.2,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.2,0.2,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.2,0.2,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.22,0,1
+0.2,0.2,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.2,0.2,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.2,0.2,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.2,0.2,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.2,0.2,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.2,0.2,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.2,0.2,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.2,0.2,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.2,0.2,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.2,0.2,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.0,1,1
+0.2,0.2,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.2,0.2,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.496,0,1
+0.2,0.2,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.969,0,1
+0.2,0.2,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.2,0.2,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.2,0.2,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.2,0.2,What is the capital of France?,,0.0,1,0
+0.2,0.2,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.2,0.2,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.2,0.2,What is the current stock price of Apple Inc?,,0.0,1,0
+0.2,0.2,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.2,0.2,What are the steps required to replace a car tire?,,0.0,1,0
+0.2,0.2,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.2,0.2,Who wrote the play Hamlet and in what year?,,0.0,1,0
+0.2,0.3,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.2,0.3,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.009,1,1
+0.2,0.3,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,0.002,1,1
+0.2,0.3,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.176,1,1
+0.2,0.3,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.2,0.3,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.2,0.3,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.2,0.3,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.04,1,1
+0.2,0.3,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.2,0.3,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.2,0.3,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.2,0.3,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.22,1,1
+0.2,0.3,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.2,0.3,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.2,0.3,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.2,0.3,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.2,0.3,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.2,0.3,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.2,0.3,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.2,0.3,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.2,0.3,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.2,0.3,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.0,1,1
+0.2,0.3,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.2,0.3,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.496,0,1
+0.2,0.3,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.969,0,1
+0.2,0.3,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.2,0.3,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.2,0.3,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.2,0.3,What is the capital of France?,,0.0,1,0
+0.2,0.3,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.2,0.3,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.2,0.3,What is the current stock price of Apple Inc?,,0.0,1,0
+0.2,0.3,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.2,0.3,What are the steps required to replace a car tire?,,0.0,1,0
+0.2,0.3,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.2,0.3,Who wrote the play Hamlet and in what year?,,0.0,1,0
+0.2,0.4,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.2,0.4,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.009,1,1
+0.2,0.4,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,0.002,1,1
+0.2,0.4,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.176,1,1
+0.2,0.4,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.2,0.4,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.2,0.4,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.2,0.4,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.04,1,1
+0.2,0.4,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.2,0.4,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.2,0.4,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.2,0.4,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.22,1,1
+0.2,0.4,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.2,0.4,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.2,0.4,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.2,0.4,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.2,0.4,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.2,0.4,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.2,0.4,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.2,0.4,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.2,0.4,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.2,0.4,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.0,1,1
+0.2,0.4,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.2,0.4,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.496,0,1
+0.2,0.4,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.969,0,1
+0.2,0.4,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.2,0.4,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.2,0.4,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.2,0.4,What is the capital of France?,,0.0,1,0
+0.2,0.4,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.2,0.4,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.2,0.4,What is the current stock price of Apple Inc?,,0.0,1,0
+0.2,0.4,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.2,0.4,What are the steps required to replace a car tire?,,0.0,1,0
+0.2,0.4,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.2,0.4,Who wrote the play Hamlet and in what year?,,0.0,1,0
+0.5,0.2,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.5,0.2,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.009,1,1
+0.5,0.2,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,0.002,1,1
+0.5,0.2,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.997,0,1
+0.5,0.2,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.5,0.2,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.5,0.2,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.5,0.2,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.04,1,1
+0.5,0.2,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.5,0.2,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.5,0.2,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.5,0.2,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.22,0,1
+0.5,0.2,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.5,0.2,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.5,0.2,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.5,0.2,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.5,0.2,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.5,0.2,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.5,0.2,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.5,0.2,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.5,0.2,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.5,0.2,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.032,1,1
+0.5,0.2,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.5,0.2,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.496,0,1
+0.5,0.2,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.99,0,1
+0.5,0.2,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.5,0.2,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.5,0.2,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.5,0.2,What is the capital of France?,,0.0,1,0
+0.5,0.2,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.5,0.2,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.5,0.2,What is the current stock price of Apple Inc?,,0.0,1,0
+0.5,0.2,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.5,0.2,What are the steps required to replace a car tire?,,0.0,1,0
+0.5,0.2,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.5,0.2,Who wrote the play Hamlet and in what year?,,0.0,1,0
+0.5,0.3,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.5,0.3,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.009,1,1
+0.5,0.3,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,0.002,1,1
+0.5,0.3,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.997,0,1
+0.5,0.3,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.5,0.3,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.5,0.3,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.5,0.3,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.04,1,1
+0.5,0.3,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.5,0.3,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.5,0.3,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.5,0.3,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.22,1,1
+0.5,0.3,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.5,0.3,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.5,0.3,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.5,0.3,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.5,0.3,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.5,0.3,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.5,0.3,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.5,0.3,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.5,0.3,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.5,0.3,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.032,1,1
+0.5,0.3,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.5,0.3,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.496,0,1
+0.5,0.3,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.99,0,1
+0.5,0.3,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.5,0.3,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.5,0.3,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.5,0.3,What is the capital of France?,,0.0,1,0
+0.5,0.3,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.5,0.3,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.5,0.3,What is the current stock price of Apple Inc?,,0.0,1,0
+0.5,0.3,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.5,0.3,What are the steps required to replace a car tire?,,0.0,1,0
+0.5,0.3,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.5,0.3,Who wrote the play Hamlet and in what year?,,0.0,1,0
+0.5,0.4,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.5,0.4,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.009,1,1
+0.5,0.4,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,0.002,1,1
+0.5,0.4,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.997,0,1
+0.5,0.4,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.5,0.4,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.5,0.4,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.5,0.4,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.04,1,1
+0.5,0.4,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.5,0.4,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.5,0.4,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.5,0.4,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.22,1,1
+0.5,0.4,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.5,0.4,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.5,0.4,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.5,0.4,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.5,0.4,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.5,0.4,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.5,0.4,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.5,0.4,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.5,0.4,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.5,0.4,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.032,1,1
+0.5,0.4,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.5,0.4,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.496,0,1
+0.5,0.4,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.99,0,1
+0.5,0.4,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.5,0.4,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.5,0.4,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.5,0.4,What is the capital of France?,,0.0,1,0
+0.5,0.4,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.5,0.4,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.5,0.4,What is the current stock price of Apple Inc?,,0.0,1,0
+0.5,0.4,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.5,0.4,What are the steps required to replace a car tire?,,0.0,1,0
+0.5,0.4,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.5,0.4,Who wrote the play Hamlet and in what year?,,0.0,1,0
+0.8,0.2,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.8,0.2,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.259,0,1
+0.8,0.2,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,1.0,0,1
+0.8,0.2,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.997,0,1
+0.8,0.2,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.8,0.2,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.8,0.2,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.8,0.2,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.081,1,1
+0.8,0.2,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.8,0.2,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.8,0.2,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.8,0.2,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.999,0,1
+0.8,0.2,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.8,0.2,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.8,0.2,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.8,0.2,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.8,0.2,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.8,0.2,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.8,0.2,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.8,0.2,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.8,0.2,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.8,0.2,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.995,0,1
+0.8,0.2,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.8,0.2,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.644,0,1
+0.8,0.2,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.99,0,1
+0.8,0.2,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.8,0.2,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.8,0.2,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.8,0.2,What is the capital of France?,,0.0,1,0
+0.8,0.2,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.8,0.2,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.8,0.2,What is the current stock price of Apple Inc?,,0.0,1,0
+0.8,0.2,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.8,0.2,What are the steps required to replace a car tire?,,0.0,1,0
+0.8,0.2,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.8,0.2,Who wrote the play Hamlet and in what year?,,0.0,1,0
+0.8,0.3,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.8,0.3,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.259,1,1
+0.8,0.3,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,1.0,0,1
+0.8,0.3,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.997,0,1
+0.8,0.3,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.8,0.3,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.8,0.3,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.8,0.3,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.081,1,1
+0.8,0.3,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.8,0.3,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.8,0.3,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.8,0.3,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.999,0,1
+0.8,0.3,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.8,0.3,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.8,0.3,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.8,0.3,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.8,0.3,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.8,0.3,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.8,0.3,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.8,0.3,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.8,0.3,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.8,0.3,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.995,0,1
+0.8,0.3,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.8,0.3,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.644,0,1
+0.8,0.3,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.99,0,1
+0.8,0.3,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.8,0.3,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.8,0.3,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.8,0.3,What is the capital of France?,,0.0,1,0
+0.8,0.3,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.8,0.3,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.8,0.3,What is the current stock price of Apple Inc?,,0.0,1,0
+0.8,0.3,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.8,0.3,What are the steps required to replace a car tire?,,0.0,1,0
+0.8,0.3,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.8,0.3,Who wrote the play Hamlet and in what year?,,0.0,1,0
+0.8,0.4,What data classification levels does the corporate cybersecurity policy define?,cybersecurity_policy.pdf,0.998,0,1
+0.8,0.4,Which data classification level requires encryption at rest?,cybersecurity_policy.pdf,0.259,1,1
+0.8,0.4,What is the principle that access to internal networks must follow?,cybersecurity_policy.pdf,1.0,0,1
+0.8,0.4,What are the cryptographic requirements for system passwords?,cybersecurity_policy.pdf,0.997,0,1
+0.8,0.4,How often must passwords be rotated under the security policy?,cybersecurity_policy.pdf,0.998,0,1
+0.8,0.4,Within how many minutes must the SOC be notified of a suspected data breach?,cybersecurity_policy.pdf,0.474,0,1
+0.8,0.4,How long must system logs be retained in WORM storage?,cybersecurity_policy.pdf,0.716,0,1
+0.8,0.4,What are the five steps of the incident response workflow?,cybersecurity_policy.pdf,0.081,1,1
+0.8,0.4,How many consecutive failed login attempts result in an account lock?,cybersecurity_policy.pdf,0.986,0,1
+0.8,0.4,Does the cybersecurity policy apply to contractors?,cybersecurity_policy.pdf,0.07,1,1
+0.8,0.4,What formula is used to calculate Scaled Dot-Product Attention?,ml_research_notes.docx,0.999,0,1
+0.8,0.4,What prevents dot products from growing too large in transformer attention?,ml_research_notes.docx,0.999,0,1
+0.8,0.4,"Why does Multi-Head Attention project Q, K, and V multiple times?",ml_research_notes.docx,0.999,0,1
+0.8,0.4,Is BERT an encoder-only or decoder-only transformer model?,ml_research_notes.docx,1.0,0,1
+0.8,0.4,Which transformer model uses causal masked attention for autoregressive text generation?,ml_research_notes.docx,1.0,0,1
+0.8,0.4,What does LoRA stand for in parameter-efficient fine-tuning?,ml_research_notes.docx,0.999,0,1
+0.8,0.4,How does LoRA factorize the weight update matrix delta-W?,ml_research_notes.docx,0.999,0,1
+0.8,0.4,What are the pre-training tasks used to train BERT?,ml_research_notes.docx,0.962,0,1
+0.8,0.4,What does PEFT stand for in machine learning?,ml_research_notes.docx,0.0,1,1
+0.8,0.4,Which attention mechanism is the fundamental building block of modern transformer architectures?,ml_research_notes.docx,0.999,0,1
+0.8,0.4,Who are the participants in the Q3 product roadmap meeting?,meeting_transcript.txt,1.0,0,1
+0.8,0.4,What model did Priya recommend as the default local LLM due to memory constraints?,meeting_transcript.txt,0.995,0,1
+0.8,0.4,What context window size and parameter count does Phi-2 have?,meeting_transcript.txt,0.995,0,1
+0.8,0.4,Which embedding model did Priya suggest sticking to for the project?,meeting_transcript.txt,0.644,0,1
+0.8,0.4,What dashboard component did Nandini design to show document ingestion progress?,meeting_transcript.txt,0.99,0,1
+0.8,0.4,What similarity threshold is set in the MMR retrieval implementation?,meeting_transcript.txt,1.0,0,1
+0.8,0.4,What charting library is Nandini using to display documents by modality on the dashboard?,meeting_transcript.txt,0.996,0,1
+0.8,0.4,How fast do Phi-2 response times run on an average CPU?,meeting_transcript.txt,0.999,0,1
+0.8,0.4,What is the capital of France?,,0.0,1,0
+0.8,0.4,How do you cook a perfect chocolate soufflé?,,0.0,1,0
+0.8,0.4,Who won the FIFA World Cup in 2022?,,0.0,1,0
+0.8,0.4,What is the current stock price of Apple Inc?,,0.0,1,0
+0.8,0.4,Can you explain the basics of quantum electrodynamics?,,0.0,1,0
+0.8,0.4,What are the steps required to replace a car tire?,,0.0,1,0
+0.8,0.4,What is the recipe for making sourdough bread from scratch?,,0.0,1,0
+0.8,0.4,Who wrote the play Hamlet and in what year?,,0.0,1,0

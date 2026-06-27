@@ -1,0 +1,16 @@
+INTELLIMESH TEAM MEETING TRANSCRIPT
+Date: June 5, 2026
+Topic: Q3 Product Roadmap & Latency Optimizations
+Participants: Alex (Product Manager), Priya (Machine Learning Lead), James (Backend Infra), Nandini (Frontend Lead)
+
+[00:01:15] Alex: Okay team, let's kick off. Our main goal is to review the Q3 roadmap for Project IntelliMesh and discuss the performance issues we've been seeing during ingestion and local LLM query generation.
+[00:02:40] Nandini: From the UI side, the drag-and-drop works smoothly, but users are complaining that there is a long silence when a document is processing. We need real-time status updates on the dashboard. I've designed a stage progress bar showing Extracting -> Chunking -> Embedding -> Indexed.
+[00:04:10] James: I can build a Server-Sent Events endpoint for uploads. That way, as python-docx or PyMuPDF extracts text, we send an SSE event, then send another when the LangChain text splitter chunking completes, and finally when ChromaDB indexing finishes.
+[00:06:22] Priya: That's perfect, James. On the model side, we are seeing high latency with Mistral-7B on standard consumer RAM. I recommend we set the default local LLM to Phi-2. It has only 2.7 billion parameters, runs in under 2GB RAM when quantized to 4-bits, and has a context window of 2048 tokens. I've tested it, and the response times are under 3 seconds on an average CPU.
+[00:09:55] Alex: That's a huge improvement. Let's make Phi-2 Q4_K_M GGUF the standard model. What about embeddings?
+[00:10:30] Priya: We will stick to all-MiniLM-L6-v2. It's tiny, extremely fast, and generates high-quality 384-dimensional dense vectors. ChromaDB handles it easily.
+[00:13:12] James: Regarding vector storage, I'm setting up ChromaDB PersistentClient to save files in the data directory. I also implemented MMR retrieval. It prevents redundant chunks from filling up the LLM's limited context window. The similarity threshold is set to 0.3. If similarity falls below this, we return a fallback offline message.
+[00:17:45] Nandini: I'll integrate Recharts on the dashboard page to show documents by modality (PDF, DOCX, Image, Audio) and total chunks. It will give the user a clear picture of their offline database size.
+[00:22:15] Alex: Awesome. What's the timeline for deployment?
+[00:24:50] James: I will have the API routers ready by tomorrow. Nandini can finish the Vite and Tailwind dashboard by Thursday. We should be ready for testing by Friday.
+[00:28:10] Alex: Excellent work everyone. Let's execute. Meeting adjourned.

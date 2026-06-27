@@ -1,0 +1,36 @@
+{
+  "summary_scores": {
+    "context_recall": 1.0,
+    "answer_relevance": 0.4956,
+    "faithfulness": 0.6667
+  },
+  "individual_results": [
+    {
+      "question": "What is the secure clearance protocol for RESTRICTED level documents?",
+      "answer": "Restricted Level Documents require OCR-B based verification with token generation to prevent hard failures and enable real-time updates through reactive frontend frameworks using WebSocket communication. This ensures secure access control for RESTRICTED level documents.",
+      "ground_truth": "RESTRICTED documents can only be accessed by personnel with RESTRICTED or CONFIDENTIAL clearance. Under no circumstances can they be viewed by UNCLASSIFIED personnel.",
+      "contexts_count": 2,
+      "context_recall": 1.0,
+      "answer_relevance": 0.645,
+      "faithfulness": 1.0
+    },
+    {
+      "question": "What is the hallucination guard threshold set to in the IntelliMesh config?",
+      "answer": "The hallucination guard threshold is empirically determined and set at a value of 0.4 for cosine similarity matching against pre-registered embeddings.",
+      "ground_truth": "The hallucination guard similarity threshold is set to 0.3, below which the system refuses to answer to prevent hallucination.",
+      "contexts_count": 1,
+      "context_recall": 1.0,
+      "answer_relevance": 0.4816,
+      "faithfulness": 1.0
+    },
+    {
+      "question": "How are video files processed in the intelligence vault?",
+      "answer": "OCR performance depends on admit card quality; damaged documents may not be OCRed accurately. Future work includes video.",
+      "ground_truth": "Video files (.mp4, .avi, .mkv) are processed by extracting audio via FFmpeg and transcribing it with Whisper, while keyframes are extracted every 5 seconds to run BLIP scene description and Tesseract OCR. These are combined into chronological timeline chunks.",
+      "contexts_count": 2,
+      "context_recall": 1.0,
+      "answer_relevance": 0.3603,
+      "faithfulness": 0.0
+    }
+  ]
+}
