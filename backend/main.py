@@ -1,3 +1,8 @@
+import os
+# Force offline modes for HuggingFace hub and transformers
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from backend.api.health import router as health_router

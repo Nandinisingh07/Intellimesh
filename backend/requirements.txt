@@ -34,3 +34,5 @@ torch>=2.2.0
 torchvision>=0.17.0
 openai-whisper>=20231117
 huggingface-hub>=0.21.0
+networkx>=3.0
+

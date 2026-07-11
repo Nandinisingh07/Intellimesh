@@ -518,8 +518,8 @@ export default function Dashboard() {
               transform: 'translateZ(5px)'
             }}>
               <div>[INDEX ENGINE]: <span style={{ color: 'var(--text-primary)' }}>HNSW_COSINE</span></div>
-              <div>[VECTOR DIMS]: <span style={{ color: 'var(--text-primary)' }}>1536D</span></div>
-              <div>[EMBED PIPELINE]: <span style={{ color: 'var(--text-primary)' }}>OLLAMA_LOCAL</span></div>
+              <div>[VECTOR DIMS]: <span style={{ color: 'var(--text-primary)' }}>384D</span></div>
+              <div>[EMBED PIPELINE]: <span style={{ color: 'var(--text-primary)' }}>SENTENCE_TRANSFORMER</span></div>
               <div>[ACCURACY RATIO]: <span style={{ color: 'var(--text-primary)' }}>99.4%</span></div>
             </div>
           </ThreeDCard>

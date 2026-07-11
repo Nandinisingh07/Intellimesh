@@ -20,84 +20,21 @@ def process_file(filename: str, content: bytes, clearance_level: str = "UNCLASSI
     elif ext == "txt":
         text = content.decode("utf-8", errors="ignore")
     elif ext in ("jpg", "jpeg", "png", "bmp", "webp"):
-        import pytesseract
-        from PIL import Image
-        import io, base64
+        import tempfile
+        from backend.processors.image_processor import ImageProcessor
 
-        pytesseract.pytesseract.tesseract_cmd = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
-        img = Image.open(io.BytesIO(content))
-
-        # 1. OCR
+        with tempfile.NamedTemporaryFile(suffix=f".{ext}", delete=False) as f:
+            f.write(content)
+            tmp_path = f.name
         try:
-            ocr_text = pytesseract.image_to_string(img).strip()
-        except Exception:
-            ocr_text = ""
-
-        # 2. AI vision description — tries Gemini first, then Anthropic, then skips
-        vision_text = ""
-
-        # Try Gemini
-        try:
-            import google.generativeai as genai
-            gemini_key = os.getenv("GEMINI_API_KEY", "")
-            if gemini_key:
-                genai.configure(api_key=gemini_key)
-                model = genai.GenerativeModel("gemini-1.5-flash")
-                img_part = {"mime_type": f"image/{ext if ext != 'jpg' else 'jpeg'}", "data": content}
-                response = model.generate_content([
-                    img_part,
-                    (
-                        "Describe this image in detail for a document retrieval system. "
-                        "Include: main subject, visible text, diagrams, data, entities, colors, layout. "
-                        "Be specific and dense — this will be embedded for semantic search."
-                    )
-                ])
-                vision_text = response.text.strip()
-                logger.info(f"Gemini vision analysis complete for {filename}")
-        except Exception as e:
-            logger.warning(f"Gemini vision failed: {e}")
-            vision_text = ""
-
-        # Fallback: Try Anthropic
-        if not vision_text:
+            img_processor = ImageProcessor()
+            res_list = img_processor.extract_text(tmp_path)
+            text = res_list[0]["text"] if res_list else ""
+        finally:
             try:
-                import anthropic
-                api_key = os.getenv("ANTHROPIC_API_KEY", "")
-                if api_key:
-                    client = anthropic.Anthropic(api_key=api_key)
-                    b64 = base64.b64encode(content).decode()
-                    media_type = f"image/{ext if ext != 'jpg' else 'jpeg'}"
-                    msg = client.messages.create(
-                        model="claude-opus-4-5",
-                        max_tokens=400,
-                        messages=[{
-                            "role": "user",
-                            "content": [
-                                {"type": "image", "source": {"type": "base64", "media_type": media_type, "data": b64}},
-                                {"type": "text", "text": (
-                                    "Describe this image in detail for a document retrieval system. "
-                                    "Include: main subject, visible text, diagrams, data, entities, colors, layout. "
-                                    "Be specific and dense — this will be embedded for semantic search."
-                                )}
-                            ]
-                        }]
-                    )
-                    vision_text = msg.content[0].text.strip()
-                    logger.info(f"Anthropic vision analysis complete for {filename}")
-            except Exception as e:
-                logger.warning(f"Anthropic vision failed: {e}")
-                vision_text = ""
-
-        # 3. Combine
-        parts = []
-        if vision_text:
-            parts.append(f"[AI Vision Description]: {vision_text}")
-        if ocr_text:
-            parts.append(f"[OCR Extracted Text]: {ocr_text}")
-        if not parts:
-            parts.append(f"[Image file: {filename}. Dimensions: {img.width}x{img.height}px. No text detected.]")
-
-        text = "\n\n".join(parts)
+                os.unlink(tmp_path)
+            except Exception:
+                pass
 
     elif ext in ("mp3", "wav", "m4a", "ogg"):
         import whisper

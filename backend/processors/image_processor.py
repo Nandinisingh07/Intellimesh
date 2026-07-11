@@ -29,40 +29,27 @@ class ImageProcessor:
             logger.info(f"Loading BLIP captioning model from {settings.BLIP_MODEL_NAME}...")
             cache_dir = str(settings.MODELS_DIR / "blip")
             try:
-    cls._blip_processor = BlipProcessor.from_pretrained(
-        settings.BLIP_MODEL_NAME,
-        cache_dir=cache_dir,
-        local_files_only=True
-    )
-    cls._blip_model = BlipForConditionalGeneration.from_pretrained(
-        settings.BLIP_MODEL_NAME,
-        cache_dir=cache_dir,
-        local_files_only=True
-    )
-except Exception:
-    logger.warning("BLIP not cached locally, downloading once...")
-    try:
-    cls._blip_processor = BlipProcessor.from_pretrained(
-        settings.BLIP_MODEL_NAME,
-        cache_dir=cache_dir,
-        local_files_only=True
-    )
-    cls._blip_model = BlipForConditionalGeneration.from_pretrained(
-        settings.BLIP_MODEL_NAME,
-        cache_dir=cache_dir,
-        local_files_only=True
-    )
-except Exception:
-    logger.warning("BLIP not cached locally, downloading once...")
-    cls._blip_processor = BlipProcessor.from_pretrained(
-        settings.BLIP_MODEL_NAME,
-        cache_dir=cache_dir
-    )
-    cls._blip_model = BlipForConditionalGeneration.from_pretrained(
-        settings.BLIP_MODEL_NAME,
-        cache_dir=cache_dir
-    )
-logger.info("BLIP captioning model loaded successfully.")
+                cls._blip_processor = BlipProcessor.from_pretrained(
+                    settings.BLIP_MODEL_NAME,
+                    cache_dir=cache_dir,
+                    local_files_only=True
+                )
+                cls._blip_model = BlipForConditionalGeneration.from_pretrained(
+                    settings.BLIP_MODEL_NAME,
+                    cache_dir=cache_dir,
+                    local_files_only=True
+                )
+            except Exception:
+                logger.warning("BLIP not cached locally, downloading once...")
+                cls._blip_processor = BlipProcessor.from_pretrained(
+                    settings.BLIP_MODEL_NAME,
+                    cache_dir=cache_dir
+                )
+                cls._blip_model = BlipForConditionalGeneration.from_pretrained(
+                    settings.BLIP_MODEL_NAME,
+                    cache_dir=cache_dir
+                )
+            logger.info("BLIP captioning model loaded successfully.")
         return cls._blip_processor, cls._blip_model
 
     def preprocess_image_for_ocr(self, file_path: str) -> np.ndarray:

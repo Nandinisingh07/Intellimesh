@@ -566,7 +566,7 @@ export default function QuantumCore3D() {
         }}
       >
         <div>[SYS_VEC_CORE]: <span style={{ color: 'var(--accent-teal)', fontWeight: 'bold' }}>ONLINE</span></div>
-        <div>[DIM]: 1536D</div>
+        <div>[DIM]: 384D</div>
       </div>
 
       {/* Top Right: Memory / Temp */}

@@ -23,7 +23,7 @@ export default function StatusBar({ status }: Props) {
       padding: '7px 20px', background: 'var(--bg-surface)',
       borderBottom: '1px solid var(--border)', flexShrink: 0,
     }}>
-      {pill('EMBEDDER', !!status?.embedder)}
+      {pill(status?.embedder ? 'EMBEDDER: SentenceTransformer all-MiniLM-L6-v2' : 'EMBEDDER', !!status?.embedder)}
       {pill(status?.llm ?? 'LLM', !!status?.llm)}
       {pill('WHISPER', !!status?.whisper)}
       {pill('OCR', true)}

@@ -1,4 +1,8 @@
 import os
+# Force offline modes for HuggingFace hub and transformers
+os.environ["HF_HUB_OFFLINE"] = "1"
+os.environ["TRANSFORMERS_OFFLINE"] = "1"
+
 from pathlib import Path
 from pydantic_settings import BaseSettings
 
@@ -46,13 +50,12 @@ class Settings(BaseSettings):
     TOP_K: int = 5
     
     # External Tools
-    GEMINI_API_KEY: str = ""
-    ANTHROPIC_API_KEY: str = ""
     TESSERACT_CMD: str = r"C:\Program Files\Tesseract-OCR\tesseract.exe"
     # TESSDATA_PREFIX is set internally or via env variable if needed
     
     class Config:
         env_file = ".env"
+        extra = "ignore"
 
 settings = Settings()
 settings.create_dirs()

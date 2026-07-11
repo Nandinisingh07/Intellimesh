@@ -23,6 +23,7 @@ interface GraphNode {
   lastUpdated: string;
   daysAgo: number;
   connectionCount: number;
+  centrality?: number;
 }
 
 interface GraphEdge {
@@ -40,8 +41,8 @@ interface GraphData {
 }
 
 type NodeCategory =
-  | 'Policy' | 'Research Paper' | 'Technology' | 'Project'
-  | 'Scientist' | 'Department' | 'Patent' | 'Report';
+  | 'Policy' | 'Document' | 'Technology' | 'Project'
+  | 'Scientist' | 'Department' | 'Text File' | 'Report';
 
 type ExploreMode = 'none' | 'research' | 'policy';
 
@@ -51,9 +52,9 @@ const CATEGORY_CONFIG: Record<NodeCategory, {
   color: string; lightColor: string; icon: string; baseRadius: number;
 }> = {
   'Policy': { color: '#F59E0B', lightColor: '#D97706', icon: 'P', baseRadius: 20 },
-  'Research Paper': { color: '#3B82F6', lightColor: '#2563EB', icon: 'R', baseRadius: 16 },
-  'Patent': { color: '#A855F7', lightColor: '#9333EA', icon: 'A', baseRadius: 14 },
-  'Report': { color: '#64748B', lightColor: '#475569', icon: 'D', baseRadius: 13 },
+  'Document': { color: '#3B82F6', lightColor: '#2563EB', icon: 'D', baseRadius: 16 },
+  'Text File': { color: '#A855F7', lightColor: '#9333EA', icon: 'F', baseRadius: 14 },
+  'Report': { color: '#64748B', lightColor: '#475569', icon: 'R', baseRadius: 13 },
   'Technology': { color: '#06B6D4', lightColor: '#0891B2', icon: 'T', baseRadius: 16 },
   'Scientist': { color: '#10B981', lightColor: '#059669', icon: 'S', baseRadius: 14 },
   'Project': { color: '#F97316', lightColor: '#EA580C', icon: 'J', baseRadius: 15 },
@@ -62,8 +63,8 @@ const CATEGORY_CONFIG: Record<NodeCategory, {
 
 const CATEGORY_ICONS: Record<NodeCategory, any> = {
   'Policy': Award,
-  'Research Paper': BookOpen,
-  'Patent': FileText,
+  'Document': BookOpen,
+  'Text File': FileText,
   'Report': BarChart2,
   'Technology': Cpu,
   'Scientist': Users,
@@ -87,48 +88,59 @@ function hexToRgb(hex: string) {
 }
 
 function enrichNode(n: any): GraphNode {
-  const hash = stableHash(n.label || n.id);
   let category: NodeCategory = 'Report';
-  if (n.type === 'query') category = 'Policy';
-  else if (n.type === 'doc') {
+  if (n.type === 'query') {
+    category = 'Policy';
+  } else if (n.type === 'doc') {
     const ext = (n.label?.split('.').pop() ?? '').toLowerCase();
-    if (ext === 'pdf') category = 'Research Paper';
+    if (ext === 'pdf') category = 'Document';
     else if (ext === 'docx') category = 'Report';
-    else if (ext === 'txt') category = 'Patent';
+    else if (ext === 'txt') category = 'Text File';
     else category = 'Report';
   } else {
-    const cats: NodeCategory[] = ['Technology', 'Scientist', 'Department'];
-    category = cats[hash % 3];
+    category = 'Technology';
   }
-
-  const confidence = 85 + (hash % 14);
-  const relevance = parseFloat((0.68 + (hash % 28) * 0.01).toFixed(2));
-  const docCount = 1 + (hash % 5);
-  const daysAgo = 1 + (hash % 120);
-  const lastUpdated =
-    daysAgo === 1 ? 'Yesterday' :
-      daysAgo < 7 ? `${daysAgo} days ago` :
-        daysAgo < 30 ? `${Math.floor(daysAgo / 7)} weeks ago` :
-          `${Math.floor(daysAgo / 30)} months ago`;
 
   const initX = isNaN(n.x) || !isFinite(n.x) ? (Math.random() * 300 - 150) : n.x;
   const initY = isNaN(n.y) || !isFinite(n.y) ? (Math.random() * 300 - 150) : n.y;
   const initZ = Math.random() * 120 - 60;
 
-  return { ...n, x: initX, y: initY, z: initZ, category, confidence, relevance, docCount, lastUpdated, daysAgo, connectionCount: 0 };
+  return {
+    ...n,
+    x: initX,
+    y: initY,
+    z: initZ,
+    category,
+    confidence: 0,
+    relevance: 0,
+    docCount: 1,
+    lastUpdated: 'Recently',
+    daysAgo: 1,
+    connectionCount: 0
+  };
 }
 
-function enrichEdge(e: any, nodes: GraphNode[]): GraphEdge {
-  const hash = stableHash(e.from + e.to);
-  const nodeA = nodes.find(n => n.id === e.from);
-  let relationship = 'RELATED_TO';
-  if (nodeA?.category === 'Policy') relationship = 'REGULATES';
-  else if (nodeA?.category === 'Scientist') relationship = 'AUTHORED_BY';
-  else if (nodeA?.category === 'Research Paper') relationship = 'CITES';
-  else if (nodeA?.category === 'Technology') relationship = 'ENABLES';
-  else if (nodeA?.category === 'Department') relationship = 'OVERSEES';
-  const strength = (['High', 'Medium', 'Low'] as const)[hash % 3];
-  return { ...e, relationship, strength, citations: 1 + (hash % 6) };
+function enrichEdge(e: any, _nodes: GraphNode[]): GraphEdge {
+  const relationship = e.relationship || 'RELATED_TO';
+  let strength: 'High' | 'Medium' | 'Low' = 'Medium';
+  const w = e.weight || 0;
+  if (relationship === 'SIMILARITY') {
+    if (w >= 0.8) strength = 'High';
+    else if (w < 0.6) strength = 'Low';
+  } else if (relationship === 'CITATION') {
+    const citationPct = w > 1.0 ? w : w * 100;
+    if (citationPct >= 80) strength = 'High';
+    else if (citationPct < 50) strength = 'Low';
+  } else if (relationship === 'PROVENANCE') {
+    strength = 'High';
+  }
+
+  return {
+    ...e,
+    relationship,
+    strength,
+    citations: relationship === 'CITATION' ? 1 : 0
+  };
 }
 
 // ─── Component ────────────────────────────────────────────────────────────────
@@ -155,7 +167,7 @@ export default function KnowledgeGraph({ theme }: { theme: 'dark' | 'light' }) {
   const [showClusters, setShowClusters] = useState(true);
   const [zoomPct, setZoomPct] = useState(100);
   const [activeFilters, setActiveFilters] = useState<Record<string, boolean>>({
-    'Policy': true, 'Research Paper': true, 'Patent': true, 'Report': true,
+    'Policy': true, 'Document': true, 'Text File': true, 'Report': true,
     'Technology': true, 'Scientist': true, 'Project': true, 'Department': true,
   });
 
@@ -209,13 +221,13 @@ export default function KnowledgeGraph({ theme }: { theme: 'dark' | 'light' }) {
       .catch(() => {
         // Use demo data so the graph always shows something
         const demoNodes: GraphNode[] = [
-          { id: 'n1', type: 'doc', label: 'Neural Networks Survey.pdf', detail: 'Comprehensive survey of deep learning architectures including CNNs, RNNs, and Transformers.', x: -120, y: -80, z: 20, category: 'Research Paper', confidence: 94, relevance: 0.92, docCount: 3, lastUpdated: '2 days ago', daysAgo: 2, connectionCount: 3 },
+          { id: 'n1', type: 'doc', label: 'Neural Networks Survey.pdf', detail: 'Comprehensive survey of deep learning architectures including CNNs, RNNs, and Transformers.', x: -120, y: -80, z: 20, category: 'Document', confidence: 94, relevance: 0.92, docCount: 3, lastUpdated: '2 days ago', daysAgo: 2, connectionCount: 3 },
           { id: 'n2', type: 'doc', label: 'Data Privacy Policy.docx', detail: 'Internal policy document governing data handling and user privacy regulations.', x: 120, y: -60, z: -30, category: 'Policy', confidence: 98, relevance: 0.87, docCount: 5, lastUpdated: 'Yesterday', daysAgo: 1, connectionCount: 4 },
           { id: 'n3', type: 'doc', label: 'ML Pipeline Architecture', detail: 'Technical specification for the end-to-end machine learning pipeline used in production.', x: 0, y: 120, z: 40, category: 'Technology', confidence: 91, relevance: 0.85, docCount: 2, lastUpdated: '5 days ago', daysAgo: 5, connectionCount: 2 },
           { id: 'n4', type: 'entity', label: 'Dr. Sarah Chen', detail: 'Lead researcher specializing in natural language processing and knowledge graphs.', x: -80, y: 60, z: -20, category: 'Scientist', confidence: 89, relevance: 0.79, docCount: 4, lastUpdated: '1 week ago', daysAgo: 7, connectionCount: 3 },
           { id: 'n5', type: 'doc', label: 'Q3 Analytics Report', detail: 'Quarterly analysis of system performance metrics and user engagement statistics.', x: 100, y: 80, z: 15, category: 'Report', confidence: 96, relevance: 0.81, docCount: 1, lastUpdated: '3 weeks ago', daysAgo: 21, connectionCount: 2 },
           { id: 'n6', type: 'entity', label: 'AI Research Dept', detail: 'Department responsible for foundational AI research and applied machine learning projects.', x: -150, y: 20, z: -50, category: 'Department', confidence: 99, relevance: 0.95, docCount: 8, lastUpdated: 'Yesterday', daysAgo: 1, connectionCount: 5 },
-          { id: 'n7', type: 'doc', label: 'NLP Patent US-2024-1182', detail: 'Patent covering novel tokenization methods for low-resource languages.', x: 60, y: -130, z: 30, category: 'Patent', confidence: 92, relevance: 0.76, docCount: 2, lastUpdated: '2 months ago', daysAgo: 60, connectionCount: 2 },
+          { id: 'n7', type: 'doc', label: 'NLP Patent US-2024-1182', detail: 'Patent covering novel tokenization methods for low-resource languages.', x: 60, y: -130, z: 30, category: 'Text File', confidence: 92, relevance: 0.76, docCount: 2, lastUpdated: '2 months ago', daysAgo: 60, connectionCount: 2 },
           { id: 'n8', type: 'entity', label: 'RAG System v2', detail: 'Second generation retrieval-augmented generation system with multimodal support.', x: -20, y: -160, z: -40, category: 'Project', confidence: 88, relevance: 0.88, docCount: 6, lastUpdated: '4 days ago', daysAgo: 4, connectionCount: 3 },
         ];
         const demoEdges: GraphEdge[] = [
@@ -1186,31 +1198,34 @@ export default function KnowledgeGraph({ theme }: { theme: 'dark' | 'light' }) {
 
           <div style={{ flex: 1, overflowY: 'auto', padding: '14px 18px', display: 'flex', flexDirection: 'column', gap: 16 }}>
 
-            {/* Confidence + relevance */}
+            {/* Centrality + Type */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
-              {[
-                { label: 'Confidence', value: `${selectedNode.confidence}%`, color: '#F59E0B' },
-                { label: 'Relevance', value: `${Math.round(selectedNode.relevance * 100)}%`, color: '#10B981' },
-              ].map(({ label, value, color }) => (
-                <div key={label} style={{ background: surf2, border: `1px solid ${border}`, borderRadius: 10, padding: '12px 14px' }}>
-                  <div style={{ fontSize: 9, color: textMuted, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6 }}>{label}</div>
-                  <div style={{ fontSize: 20, fontWeight: 700, color }}>{value}</div>
-                  <div style={{ marginTop: 6, height: 3, borderRadius: 2, background: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' }}>
-                    <div style={{ height: '100%', borderRadius: 2, background: color, width: value, transition: 'width 0.4s ease' }} />
-                  </div>
+              <div style={{ background: surf2, border: `1px solid ${border}`, borderRadius: 10, padding: '12px 14px' }}>
+                <div style={{ fontSize: 9, color: textMuted, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6 }}>Centrality</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#6366F1' }}>
+                  {selectedNode.centrality !== undefined ? `${(selectedNode.centrality * 100).toFixed(3)}%` : '0.000%'}
                 </div>
-              ))}
+                <div style={{ marginTop: 6, height: 3, borderRadius: 2, background: isDark ? 'rgba(255,255,255,0.06)' : 'rgba(0,0,0,0.06)' }}>
+                  <div style={{ height: '100%', borderRadius: 2, background: '#6366F1', width: selectedNode.centrality !== undefined ? `${Math.min(100, selectedNode.centrality * 1000)}%` : '0%', transition: 'width 0.4s ease' }} />
+                </div>
+              </div>
+              <div style={{ background: surf2, border: `1px solid ${border}`, borderRadius: 10, padding: '12px 14px' }}>
+                <div style={{ fontSize: 9, color: textMuted, fontWeight: 600, textTransform: 'uppercase', letterSpacing: '0.06em', marginBottom: 6 }}>Node Type</div>
+                <div style={{ fontSize: 16, fontWeight: 700, color: '#10B981' }}>
+                  {selectedNode.type ? selectedNode.type.toUpperCase() : 'N/A'}
+                </div>
+              </div>
             </div>
 
             {/* Meta */}
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 8 }}>
               <div style={{ background: surf2, border: `1px solid ${border}`, borderRadius: 8, padding: '10px 12px' }}>
-                <div style={{ fontSize: 9, color: textMuted, fontWeight: 600, marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Documents</div>
-                <div style={{ fontSize: 15, fontWeight: 700, color: textPrimary }}>{selectedNode.docCount}</div>
+                <div style={{ fontSize: 9, color: textMuted, fontWeight: 600, marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Connections</div>
+                <div style={{ fontSize: 15, fontWeight: 700, color: textPrimary }}>{selectedNode.connectionCount}</div>
               </div>
               <div style={{ background: surf2, border: `1px solid ${border}`, borderRadius: 8, padding: '10px 12px' }}>
-                <div style={{ fontSize: 9, color: textMuted, fontWeight: 600, marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Updated</div>
-                <div style={{ fontSize: 12, fontWeight: 600, color: '#F59E0B' }}>{selectedNode.lastUpdated}</div>
+                <div style={{ fontSize: 9, color: textMuted, fontWeight: 600, marginBottom: 4, textTransform: 'uppercase', letterSpacing: '0.05em' }}>Category</div>
+                <div style={{ fontSize: 11, fontWeight: 600, color: '#F59E0B' }}>{selectedNode.category}</div>
               </div>
             </div>
 
@@ -1240,7 +1255,17 @@ export default function KnowledgeGraph({ theme }: { theme: 'dark' | 'light' }) {
                         <div style={{ width: 8, height: 8, borderRadius: '50%', background: col, flexShrink: 0 }} />
                         <div style={{ flex: 1, minWidth: 0 }}>
                           <div style={{ fontSize: 11.5, fontWeight: 600, color: textPrimary, overflow: 'hidden', textOverflow: 'ellipsis', whiteSpace: 'nowrap' }}>{node.label}</div>
-                          <div style={{ fontSize: 9.5, color: textMuted, marginTop: 1 }}>{edge.relationship} · {edge.strength}</div>
+                          <div style={{ fontSize: 9.5, color: textMuted, marginTop: 1 }}>
+                            {edge.relationship === 'SIMILARITY' ? (
+                              `SIMILARITY · ${(edge.weight * 100).toFixed(1)}%`
+                            ) : edge.relationship === 'CITATION' ? (
+                              `CITATION · ${(edge.weight > 1.0 ? edge.weight : edge.weight * 100).toFixed(1)}%`
+                            ) : edge.relationship === 'PROVENANCE' ? (
+                              `PROVENANCE`
+                            ) : (
+                              `${edge.relationship} · ${edge.strength}`
+                            )}
+                          </div>
                         </div>
                         <ChevronRight size={10} color={textMuted} />
                       </div>

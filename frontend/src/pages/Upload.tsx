@@ -81,7 +81,7 @@ export default function UploadPage() {
           addLog(`OCR: Extracting layout bounds via Tesseract OCR...`);
         }, delay += 350);
         setTimeout(() => {
-          addLog(`OCR: Discovered semantic bounding boxes in file`);
+          addLog(`BLIP: Generating visual description via Salesforce BLIP...`);
         }, delay += 300);
       } else if (['mp3', 'wav', 'm4a'].includes(ext)) {
         setTimeout(() => {
@@ -101,7 +101,7 @@ export default function UploadPage() {
       }, delay += 350);
       
       setTimeout(() => {
-        addLog(`EMBED: Requesting Ollama embedding vectors (1536D)...`);
+        addLog(`EMBED: Generating local embeddings via SentenceTransformer all-MiniLM-L6-v2 (384D)...`);
       }, delay += 450);
 
       setTimeout(() => {
