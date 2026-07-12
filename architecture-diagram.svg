@@ -15,12 +15,8 @@
 
 <!-- top box: FastAPI backend -->
 <rect x="80" y="100" width="840" height="90" rx="10" fill="#111827" stroke="#2c3550" stroke-width="1"/>
-<g>
-<rect x="112" y="126" width="22" height="22" rx="4" fill="#3a6ea5"/>
-<path d="M118 143 L128 131 M118 131 L128 143" stroke="#eaf2fb" stroke-width="1.6" stroke-linecap="round"/>
-</g>
-<text x="150" y="144" font-size="19" font-weight="700" fill="#f4f6fb">FastAPI Backend (main.py)</text>
-<text x="150" y="169" font-size="14" fill="#8b93a8">Ingestion router &#183; retrieval orchestrator &#183; audit log</text>
+<text x="112" y="144" font-size="19" font-weight="700" fill="#f4f6fb">FastAPI Backend (main.py)</text>
+<text x="112" y="169" font-size="14" fill="#8b93a8">Ingestion router &#183; retrieval orchestrator &#183; audit log</text>
 
 <!-- three down arrows -->
 <line x1="270" y1="190" x2="270" y2="222" stroke="#8b93a8" stroke-width="1.6" marker-end="url(#arrow)"/>
