@@ -189,10 +189,6 @@ No API keys required. `HF_HUB_OFFLINE` and `TRANSFORMERS_OFFLINE` are set at sta
 
 <br/>
 
-## License
-
-*(add your license here)*
-
 <br/>
 
 <div align="center">
