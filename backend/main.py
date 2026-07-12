@@ -1,3 +1,5 @@
+from dotenv import load_dotenv
+load_dotenv()
 import os
 # Force offline modes for HuggingFace hub and transformers
 os.environ["HF_HUB_OFFLINE"] = "1"
